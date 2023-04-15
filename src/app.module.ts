@@ -1,14 +1,20 @@
 import { Module } from '@nestjs/common';
-import { ClientsModule, Transport } from '@nestjs/microservices';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CmsModule } from './modules/cms/cms.module';
+import { CompanyModule } from './modules/cms/company/company.module';
+import { RouterModule } from '@nestjs/core';
 
 @Module({
   imports: [
-    CmsModule
+    CompanyModule,
+    RouterModule.register([
+      {
+        path: 'cms',
+        module: CompanyModule,
+      },
+    ])
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

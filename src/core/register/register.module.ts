@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { CmsController } from './cms.controller';
-import { CmsService } from './cms.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
@@ -11,7 +9,6 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
                 transport: Transport.TCP,
             }
     ])],
-    controllers: [CmsController],
-    providers: [CmsService]
+    exports:[ClientsModule]
 })
-export class CmsModule { }
+export class RegisterModule { }
