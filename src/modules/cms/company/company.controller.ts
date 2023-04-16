@@ -11,30 +11,32 @@ import { CompanyService } from './company.service';
 
 @Controller('company')
 export class CompanyController {
-  constructor(private readonly companyService: CompanyService) {}
+    constructor(private readonly companyService: CompanyService) {}
 
-  @Get('list_all')
-  async getAllCompany() {
-    return this.companyService.getAllCompany();
-  }
+    @Get('list_all')
+    async getAllCompany() {
+        return this.companyService.getAllCompany();
+    }
 
-  @Get('get_company/:id')
-  getCompany(@Param('id') id: string) {
-    return this.companyService.getCompany(id);
-  }
+    @Get('get_company/:id')
+    getCompany(@Param('id') id: string) {
+        return this.companyService.getCompany(id);
+    }
 
-  @Post('create_new_company')
-  createCompany(@Body() data) {
-    return this.companyService.createCompany(data);
-  }
+    @Post('create_new_company')
+    createCompany(@Body() data) {
+        data.id = undefined;
+        return this.companyService.createCompany(data);
+    }
 
-  @Patch('edit_company/:id')
-  updateCompany(@Param('id') id: string, @Body() data) {
-    return this.companyService.updateCompany({ ...data, id });
-  }
+    @Patch('edit_company/:id')
+    updateCompany(@Param('id') id: string, @Body() data) {
+        data.id = id;
+        return this.companyService.updateCompany(data);
+    }
 
-  @Delete('delete-company/:id')
-  deleteCompany(@Param('id') id: string) {
-    return this.companyService.deleteCompany(id);
-  }
+    @Delete('delete-company/:id')
+    deleteCompany(@Param('id') id: string) {
+        return this.companyService.deleteCompany(id);
+    }
 }
