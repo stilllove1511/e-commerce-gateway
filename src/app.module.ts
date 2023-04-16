@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CompanyModule } from './modules/cms/company/company.module';
-import { RouterModule } from '@nestjs/core';
+import { APP_FILTER, RouterModule } from '@nestjs/core';
+import { HttpErrorFilter } from './utils/http-error.filter';
 
 @Module({
   imports: [
@@ -12,9 +13,15 @@ import { RouterModule } from '@nestjs/core';
         path: 'cms',
         module: CompanyModule,
       },
-    ])
+    ]),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: HttpErrorFilter,
+    },
+  ],
 })
-export class AppModule { }
+export class AppModule {}

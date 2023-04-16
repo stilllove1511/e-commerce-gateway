@@ -9,7 +9,7 @@ export class CompanyService {
     ) { }
 
     getAllCompany() {
-        return this.cmsClient.send('get_all_company','');
+        return this.cmsClient.send('list_all_company', '');
     }
 
     getCompany(id: string) {
