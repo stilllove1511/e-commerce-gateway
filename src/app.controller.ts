@@ -1,7 +1,5 @@
 import { Body, Controller, Get, Inject, Param, Post } from '@nestjs/common';
 // import { AppService } from './app.service';
-import { CreateUserRequest } from './create-user-request.dto';
-import { ClientProxy } from '@nestjs/microservices';
 
 @Controller()
 export class AppController {

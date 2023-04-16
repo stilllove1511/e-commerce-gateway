@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { CMS } from '@src/core/utils/constants';
+import { CMS } from '@src/utils/constants';
 
 @Injectable()
 export class CompanyService {
