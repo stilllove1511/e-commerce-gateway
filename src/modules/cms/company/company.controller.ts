@@ -8,6 +8,7 @@ import {
   Post,
 } from '@nestjs/common';
 import { CompanyService } from './company.service';
+import { CreateCompanyDto } from './dto/create_company.dto'
 
 @Controller('company')
 export class CompanyController {
@@ -15,28 +16,27 @@ export class CompanyController {
 
     @Get('list_all')
     async getAllCompany() {
-        return this.companyService.getAllCompany();
+        return this.companyService.getAllCompany()
     }
 
     @Get('get_company/:id')
     getCompany(@Param('id') id: string) {
-        return this.companyService.getCompany(id);
+        return this.companyService.getCompany(id)
     }
 
     @Post('create_new_company')
-    createCompany(@Body() data) {
-        data.id = undefined;
-        return this.companyService.createCompany(data);
+    createCompany(@Body() data: CreateCompanyDto) {
+        return this.companyService.createCompany({ ...data, id: undefined })
     }
 
     @Patch('edit_company/:id')
     updateCompany(@Param('id') id: string, @Body() data) {
-        data.id = id;
-        return this.companyService.updateCompany(data);
+        data.id = id
+        return this.companyService.updateCompany(data)
     }
 
     @Delete('delete-company/:id')
     deleteCompany(@Param('id') id: string) {
-        return this.companyService.deleteCompany(id);
+        return this.companyService.deleteCompany(id)
     }
 }
