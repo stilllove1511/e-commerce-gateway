@@ -5,11 +5,13 @@ import { CompanyModule } from './modules/cms/company/company.module';
 import { APP_FILTER, RouterModule } from '@nestjs/core';
 import { HttpErrorFilter } from './utils/http-error.filter';
 import { AreaModule } from './modules/cms/area/area.module';
+import { ProductModule } from './modules/product/product.module'
 
 @Module({
     imports: [
         CompanyModule,
         AreaModule,
+        ProductModule,
         RouterModule.register([
             {
                 path: 'cms',
