@@ -1,7 +1,7 @@
 import { Transform } from 'class-transformer'
 import { IsOptional } from 'class-validator'
 
-export class CreateProductDto {
+export class UpdateProductDto {
     // @IsOptional()
     name: string
 
