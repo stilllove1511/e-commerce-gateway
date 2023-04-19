@@ -6,12 +6,14 @@ import { APP_FILTER, RouterModule } from '@nestjs/core';
 import { HttpErrorFilter } from './utils/http-error.filter';
 import { AreaModule } from './modules/cms/area/area.module';
 import { ProductModule } from './modules/product/product.module'
+import { BrandModule } from './modules/brand/brand.module'
 
 @Module({
     imports: [
         CompanyModule,
         AreaModule,
         ProductModule,
+        BrandModule,
         RouterModule.register([
             {
                 path: 'cms',
