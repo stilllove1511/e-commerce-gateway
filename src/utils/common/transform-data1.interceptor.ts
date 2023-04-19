@@ -10,7 +10,8 @@ import { Observable } from 'rxjs'
 export class TransformDataInterceptor implements NestInterceptor {
     intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
         const request = context.switchToHttp().getRequest()
-        request.body.id = undefined
+        delete request.body.id
+        // console.log(request.body)
         return next.handle()
     }
 }

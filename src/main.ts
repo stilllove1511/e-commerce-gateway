@@ -9,6 +9,7 @@ async function bootstrap() {
     app.useGlobalPipes(
         new ValidationPipe({
             enableDebugMessages: true,
+            transform: true,
         }),
     )
     app.useGlobalInterceptors(new TransformDataInterceptor())
