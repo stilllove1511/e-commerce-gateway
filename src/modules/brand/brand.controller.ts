@@ -3,6 +3,8 @@ import {
     Controller,
     Delete,
     Get,
+    HttpException,
+    HttpStatus,
     Param,
     Patch,
     Post,
@@ -14,7 +16,7 @@ import { BrandService } from './brand.service'
 export class BrandController {
     constructor(private readonly brandService: BrandService) {}
 
-    @Get()
+    @Get('get_all')
     async getAllBrand(
         @Query('page') page: number,
         @Query('size') size: number,
@@ -22,7 +24,7 @@ export class BrandController {
         return this.brandService.getAllBrand({ page, size })
     }
 
-    @Get(':id')
+    @Get('get_one/:id')
     getBrand(@Param('id') id: string) {
         return this.brandService.getBrand(id)
     }

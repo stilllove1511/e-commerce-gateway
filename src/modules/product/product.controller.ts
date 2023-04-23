@@ -18,7 +18,7 @@ import { UpdateProductDto } from './dto/update_product.dto'
 export class ProductController {
     constructor(private readonly productService: ProductService) {}
 
-    @Get()
+    @Get('get_all')
     async getAllProduct(
         @Query('page') page: number,
         @Query('size') size: number,
@@ -26,7 +26,7 @@ export class ProductController {
         return this.productService.getAllProduct({ page, size })
     }
 
-    @Get(':id')
+    @Get('get_one/:id')
     getProduct(@Param('id') id: string) {
         return this.productService.getProduct(id)
     }
