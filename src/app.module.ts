@@ -10,6 +10,7 @@ import { BrandModule } from './modules/brand/brand.module'
 import { CategoryModule } from './modules/category/category.module'
 import { OrderModule } from './modules/order/order.module'
 import { CartModule } from './modules/cart/cart.module'
+import { AccountModule } from './modules/account/account.module'
 
 @Module({
     imports: [
@@ -18,6 +19,7 @@ import { CartModule } from './modules/cart/cart.module'
         CategoryModule,
         OrderModule,
         CartModule,
+        AccountModule,
     ],
     controllers: [AppController],
     providers: [
