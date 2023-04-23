@@ -6,29 +6,29 @@ import { BRAND_PATTERN } from '@src/utils/enums/brand.enum'
 @Injectable()
 export class BrandService {
     constructor(
-        @Inject(PRODUCT_SERVICE) private readonly brandClient: ClientProxy,
+        @Inject(PRODUCT_SERVICE) private readonly productClient: ClientProxy,
     ) {}
 
     getAllBrand({ page, size }) {
-        return this.brandClient.send(BRAND_PATTERN.brand_get_all, {
+        return this.productClient.send(BRAND_PATTERN.brand_get_all, {
             page,
             size,
         })
     }
 
     getBrand(id: string) {
-        return this.brandClient.send(BRAND_PATTERN.brand_get_one, id)
+        return this.productClient.send(BRAND_PATTERN.brand_get_one, id)
     }
 
     createBrand(data) {
-        return this.brandClient.send(BRAND_PATTERN.brand_create, data)
+        return this.productClient.send(BRAND_PATTERN.brand_create, data)
     }
 
     updateBrand(data) {
-        return this.brandClient.send(BRAND_PATTERN.brand_update, data)
+        return this.productClient.send(BRAND_PATTERN.brand_update, data)
     }
 
     deleteBrand(id: string) {
-        return this.brandClient.send(BRAND_PATTERN.brand_delete, id)
+        return this.productClient.send(BRAND_PATTERN.brand_delete, id)
     }
 }

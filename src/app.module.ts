@@ -8,24 +8,16 @@ import { HttpErrorFilter } from './utils/http-error.filter'
 import { ProductModule } from './modules/product/product.module'
 import { BrandModule } from './modules/brand/brand.module'
 import { CategoryModule } from './modules/category/category.module'
+import { OrderModule } from './modules/order/order.module'
+import { CartModule } from './modules/cart/cart.module'
 
 @Module({
     imports: [
-        // CompanyModule,
-        // AreaModule,
         ProductModule,
         BrandModule,
         CategoryModule,
-        // RouterModule.register([
-        //     {
-        //         path: 'cms',
-        //         module: CompanyModule,
-        //     },
-        //     {
-        //         path: 'cms',
-        //         module: AreaModule,
-        //     },
-        // ]),
+        OrderModule,
+        CartModule,
     ],
     controllers: [AppController],
     providers: [
