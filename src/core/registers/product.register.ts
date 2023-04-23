@@ -9,7 +9,8 @@ import { PRODUCT_SERVICE } from '@src/utils/constants'
                 name: PRODUCT_SERVICE,
                 transport: Transport.TCP,
                 options: {
-                    port: parseInt(process.env.PRODUCT_PORT) || 8081,
+                    host: process.env.PRODUCT_HOST,
+                    port: parseInt(process.env.PRODUCT_PORT),
                 },
             },
         ]),
