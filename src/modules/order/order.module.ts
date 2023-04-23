@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common'
-import { OrderRegister } from '@src/core/registers/orer.register'
+import { OrderRegister } from '@src/core/registers/order.register'
 import { OrderService } from './order.service'
 import { OrderController } from './order.controller'
 
