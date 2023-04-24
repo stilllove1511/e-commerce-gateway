@@ -7,12 +7,12 @@ import {
     Patch,
     Post,
     Query,
-    UsePipes,
-    ValidationPipe,
+    Req,
 } from '@nestjs/common'
 import { ProductService } from './product.service'
 import { CreateProductDto } from './dto/create_product.dto'
 import { UpdateProductDto } from './dto/update_product.dto'
+import { Request } from 'express'
 
 @Controller('product')
 export class ProductController {
@@ -32,9 +32,12 @@ export class ProductController {
     }
 
     @Post('create')
-    createProduct(@Body() data: CreateProductDto) {
-        console.log(data)
-        return this.productService.createProduct(data)
+    createProduct(@Body() data: CreateProductDto, @Req() request: Request) {
+        const authHeader = request.headers.authorization
+        if (authHeader && authHeader.startsWith('Bearer ')) {
+            const token = authHeader.split(' ')[1]
+            return this.productService.createProduct({ ...data, token })
+        }
     }
 
     @Patch('update/:id')
