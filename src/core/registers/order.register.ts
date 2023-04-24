@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common'
 import { ClientsModule, Transport } from '@nestjs/microservices'
 import { ORDER_SERVICE } from '@src/utils/constants'
-
+import * as dotenv from 'dotenv'
+dotenv.config()
 @Module({
     imports: [
         ClientsModule.register([
