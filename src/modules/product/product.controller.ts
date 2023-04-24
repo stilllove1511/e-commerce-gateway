@@ -32,12 +32,8 @@ export class ProductController {
     }
 
     @Post('create')
-    createProduct(@Body() data: CreateProductDto, @Req() request: Request) {
-        const authHeader = request.headers.authorization
-        if (authHeader && authHeader.startsWith('Bearer ')) {
-            const token = authHeader.split(' ')[1]
-            return this.productService.createProduct({ ...data, token })
-        }
+    createProduct(@Body() data: CreateProductDto) {
+        return this.productService.createProduct(data)
     }
 
     @Patch('update/:id')
