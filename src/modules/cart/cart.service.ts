@@ -9,10 +9,11 @@ export class CartService {
         @Inject(ORDER_SERVICE) private readonly orderClient: ClientProxy,
     ) {}
 
-    getAllCart({ page, size }) {
+    getAllCart({ page, size, token }) {
         return this.orderClient.send(CART_PATTERN.cart_get_all, {
             page,
             size,
+            token,
         })
     }
 

@@ -11,7 +11,7 @@ dotenv.config()
                 transport: Transport.TCP,
                 options: {
                     host: process.env.ACCOUNT_HOST,
-                    port: parseInt(process.env.ACCOUNT_PORT),
+                    port: parseInt(process.env.ACCOUNT_PORT) || 80,
                 },
             },
         ]),

@@ -15,8 +15,12 @@ export class CartController {
     constructor(private readonly cartService: CartService) {}
 
     @Get('get_all')
-    async getAllCart(@Query('page') page: number, @Query('size') size: number) {
-        return this.cartService.getAllCart({ page, size })
+    async getAllCart(
+        @Query('page') page: number,
+        @Query('size') size: number,
+        @Body() data,
+    ) {
+        return this.cartService.getAllCart({ page, size, token: data.token })
     }
 
     @Get('get_one/:id')
