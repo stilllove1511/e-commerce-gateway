@@ -9,15 +9,16 @@ export class OrderService {
         @Inject(ORDER_SERVICE) private readonly orderClient: ClientProxy,
     ) {}
 
-    getAllOrder({ page, size }) {
+    getAllOrder({ page, size, token }) {
         return this.orderClient.send(ORDER_PATTERN.order_get_all, {
             page,
             size,
+            token,
         })
     }
 
-    getOrder(id: string) {
-        return this.orderClient.send(ORDER_PATTERN.order_get_one, id)
+    getOrder(data) {
+        return this.orderClient.send(ORDER_PATTERN.order_get_one, data)
     }
 
     createOrder(data) {
@@ -28,7 +29,7 @@ export class OrderService {
         return this.orderClient.send(ORDER_PATTERN.order_update, data)
     }
 
-    deleteOrder(id: string) {
-        return this.orderClient.send(ORDER_PATTERN.order_delete, id)
+    deleteOrder(data) {
+        return this.orderClient.send(ORDER_PATTERN.order_delete, data)
     }
 }

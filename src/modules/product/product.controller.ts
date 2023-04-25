@@ -42,7 +42,8 @@ export class ProductController {
     }
 
     @Delete('delete/:id')
-    deleteProduct(@Param('id') id: string) {
-        return this.productService.deleteProduct(id)
+    deleteProduct(@Param('id') id: string, @Body() data) {
+        data.id = id
+        return this.productService.deleteProduct(data)
     }
 }

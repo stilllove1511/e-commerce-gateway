@@ -41,7 +41,8 @@ export class BrandController {
     }
 
     @Delete('delete/:id')
-    deleteBrand(@Param('id') id: string) {
-        return this.brandService.deleteBrand(id)
+    deleteBrand(@Param('id') id: string, @Body() data) {
+        data.id = id
+        return this.brandService.deleteBrand(data)
     }
 }

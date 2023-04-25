@@ -17,8 +17,8 @@ export class CartService {
         })
     }
 
-    getCart(id: string) {
-        return this.orderClient.send(CART_PATTERN.cart_get_one, id)
+    getCart(data) {
+        return this.orderClient.send(CART_PATTERN.cart_get_one, data)
     }
 
     createCart(data) {
@@ -29,7 +29,7 @@ export class CartService {
         return this.orderClient.send(CART_PATTERN.cart_update, data)
     }
 
-    deleteCart(id: string) {
-        return this.orderClient.send(CART_PATTERN.cart_delete, id)
+    deleteCart(data) {
+        return this.orderClient.send(CART_PATTERN.cart_delete, data)
     }
 }

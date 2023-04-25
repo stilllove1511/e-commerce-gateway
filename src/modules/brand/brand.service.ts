@@ -28,7 +28,7 @@ export class BrandService {
         return this.productClient.send(BRAND_PATTERN.brand_update, data)
     }
 
-    deleteBrand(id: string) {
-        return this.productClient.send(BRAND_PATTERN.brand_delete, id)
+    deleteBrand(data) {
+        return this.productClient.send(BRAND_PATTERN.brand_delete, data)
     }
 }

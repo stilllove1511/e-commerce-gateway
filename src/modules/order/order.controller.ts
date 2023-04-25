@@ -18,13 +18,15 @@ export class OrderController {
     async getAllOrder(
         @Query('page') page: number,
         @Query('size') size: number,
+        @Body() data,
     ) {
-        return this.orderService.getAllOrder({ page, size })
+        return this.orderService.getAllOrder({ page, size, token: data.token })
     }
 
     @Get('get_one/:id')
-    getOrder(@Param('id') id: string) {
-        return this.orderService.getOrder(id)
+    getOrder(@Param('id') id: string, @Body() data) {
+        data.id = id
+        return this.orderService.getOrder(data)
     }
 
     @Post('create')
@@ -39,7 +41,8 @@ export class OrderController {
     }
 
     @Delete('delete/:id')
-    deleteOrder(@Param('id') id: string) {
-        return this.orderService.deleteOrder(id)
+    deleteOrder(@Param('id') id: string, @Body() data) {
+        data.id = id
+        return this.orderService.deleteOrder(data)
     }
 }

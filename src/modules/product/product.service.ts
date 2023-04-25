@@ -28,7 +28,7 @@ export class ProductService {
         return this.productClient.send(PRODUCT_PATTERN.product_update, data)
     }
 
-    deleteProduct(id: string) {
-        return this.productClient.send(PRODUCT_PATTERN.product_delete, id)
+    deleteProduct(data) {
+        return this.productClient.send(PRODUCT_PATTERN.product_delete, data)
     }
 }

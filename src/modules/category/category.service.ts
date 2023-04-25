@@ -28,7 +28,7 @@ export class CategoryService {
         return this.productClient.send(CATEGORY_PATTERN.category_update, data)
     }
 
-    deleteCategory(id: string) {
-        return this.productClient.send(CATEGORY_PATTERN.category_delete, id)
+    deleteCategory(data) {
+        return this.productClient.send(CATEGORY_PATTERN.category_delete, data)
     }
 }

@@ -24,13 +24,14 @@ export class CartController {
     }
 
     @Get('get_one/:id')
-    getCart(@Param('id') id: string) {
-        return this.cartService.getCart(id)
+    getCart(@Param('id') id: string, @Body() data) {
+        data.id = id
+        return this.cartService.getCart(data)
     }
 
     @Post('create')
     createCart(@Body() data) {
-        return this.cartService.createCart({ ...data, id: undefined })
+        return this.cartService.createCart(data)
     }
 
     @Patch('update/:id')
@@ -40,7 +41,8 @@ export class CartController {
     }
 
     @Delete('delete/:id')
-    deleteCart(@Param('id') id: string) {
-        return this.cartService.deleteCart(id)
+    deleteCart(@Param('id') id: string, @Body() data) {
+        data.id = id
+        return this.cartService.deleteCart(data)
     }
 }
