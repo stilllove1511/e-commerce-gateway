@@ -13,6 +13,7 @@ async function bootstrap() {
         }),
     )
     app.useGlobalInterceptors(new TransformDataInterceptor())
+    app.enableCors()
     await app.listen(port, () => {
         console.log('Gateway is running on the port ' + port)
     })

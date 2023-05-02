@@ -43,4 +43,9 @@ export class AccountService {
     updatePassword(data) {
         return this.accountClient.send(ACCOUNT_PATTERN.updatePassword, data)
     }
+
+    detailAdmin(data) {
+        return this.accountClient.send(ACCOUNT_PATTERN.detailAdmin, data)
+    }
+    v
 }

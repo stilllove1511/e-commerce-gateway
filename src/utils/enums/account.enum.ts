@@ -7,4 +7,5 @@ export enum ACCOUNT_PATTERN {
     login = 'login',
     register = 'register',
     updatePassword = 'updatePassword',
+    detailAdmin = 'detailAdmin',
 }

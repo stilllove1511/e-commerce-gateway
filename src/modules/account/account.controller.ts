@@ -57,4 +57,10 @@ export class AccountController {
     updatePassoword(@Body() data) {
         return this.accountService.updatePassword(data)
     }
+
+    @Get('detail-admin/:id')
+    detailAdmin(@Body() data, @Param('id') id: string) {
+        data.id = id
+        return this.accountService.detailAdmin(data)
+    }
 }
